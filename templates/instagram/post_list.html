@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+</head>
+<body>
+
+    <form action="" method="get">
+        <input type="text" name="q" value="{{q}}"/>
+        <input type="submit" value="검색" />
+    </form>
+
+    <table>
+    {% for post in post_list %}
+    <tr>
+        <td>{{ post.message }}</td>
+        {% if post.photo %}
+        <td><img src="{{ post.photo.url }}" style="width: 100px;"></td>
+        {% else %}
+        <td>No photo</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
