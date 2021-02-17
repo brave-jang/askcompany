@@ -1,6 +1,5 @@
 from django.db import models
 from django.conf import settings
-from django.db.models.deletion import CASCADE
 
 
 class Post(models.Model):
@@ -22,7 +21,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey('Post', on_delete=CASCADE) # post_id 필드 생성
+    post = models.ForeignKey('Post', on_delete=models.CASCADE) # post_id 필드 생성
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
